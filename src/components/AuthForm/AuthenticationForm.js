@@ -6,8 +6,8 @@ import classes from "./Layout.module.scss";
 import API from "../../api/index";
 
 const initialState = {
-  email: "",
-  password: "",
+  email: " ",
+  password: " ",
 };
 
 const LoginContainer = () => {
@@ -41,21 +41,49 @@ const LoginContainer = () => {
   }
 
   //------------------------------------------------------------------------
-  const [error,setError]=useState(false)
+  const [error, setError] = useState({ bool: false, Message: " " });
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
   //------------------------------------------------------------------------
+
   const handleSubmit = (e) => {
+    if (credentials.email.includes(" ") || credentials.email.length === 0) {
+      setEmailError(true);
+      return;
+    } else {
+      setEmailError(false);
+    }
+
+    if (
+      credentials.password.includes(" ") ||
+      credentials.password.length === 0
+    ) {
+      console.log("you have to set password !");
+      setPasswordError(true);
+      return;
+    } else {
+      setPasswordError(false);
+    }
+
     API.post("login", credentials)
       .then((res) => {
-          if (res.status === 200) {
-            console.log(res.data);
-            const user = res?.data?.token?.user;
-            const token = res?.data?.token?.token;
-            localStorage.setItem("curentUser", JSON.stringify({ user, token }));
-            window.location.reload(false);
-            navigate("/profile");
-          }
+        if (res.status === 200) {
+          const user = res?.data?.result;
+          const token = res?.data?.token;
+          localStorage.setItem("curentUser", JSON.stringify({ user, token }));
+          window.location.reload(false);
+          navigate("/profile");
+        }
       })
-      .catch((err) => setError(true));
+      .catch((err) => {
+        if (err.response) {
+          if (err.response.status === 401) {
+            setError({ bool: true, Message: err.response.data.Message });
+          }
+        } else {
+            setError({ bool: true, Message: "server not responding !" });
+        }
+      });
   };
 
   return (
@@ -85,6 +113,12 @@ const LoginContainer = () => {
             />
           </div>
         </div>
+        {emailError ? (
+          <p style={{ color: "red", fontSize: "10px" }}>
+            {" "}
+            please check your email
+          </p>
+        ) : null}
         <div className={inputClass} style={style}>
           <div className="fluid-input-holder">
             <input
@@ -96,21 +130,26 @@ const LoginContainer = () => {
               onBlur={focusField}
               autoComplete="off"
               onChange={handleChange}
-              placeholder="Password "
+              placeholder="Password"
             />
           </div>
         </div>
-
+        {passwordError ? (
+          <p style={{ color: "red", fontSize: "10px" }}>
+            {" "}
+            please check your password
+          </p>
+        ) : null}
         <ForgetPassword
           buttonText="forget password ?"
           buttonClass="forget-pasword-button"
         />
         <Button
-          buttonText="log in"
+          buttonText="login"
           buttonClass="login-button"
           onClick={handleSubmit}
         />
-        {error ? <p style={{color : 'red'}}>verify your credentials </p> : null}
+        {error.bool ? <p style={{ color: "red", fontSize : "15px" }}> {error.Message} </p> : null}
       </div>
     </div>
   );

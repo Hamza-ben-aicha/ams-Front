@@ -1,6 +1,8 @@
 @import "../../styles/variables.scss";
 
 .header {
+  
+  z-index: 90;
   background: rgba($darkGray, 0.5);
   width: 100%;
   height: 47px;

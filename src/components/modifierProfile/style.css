@@ -1,0 +1,9 @@
+.visibleError{
+    visibility: visible;
+    color: crimson;
+    font-size: 10px;
+}
+
+.hiddenError{
+    visibility: hidden;
+}
