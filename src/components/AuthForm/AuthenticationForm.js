@@ -4,7 +4,7 @@ import { Button, ForgetPassword } from "../../Elements";
 import { useNavigate } from "react-router-dom";
 import classes from "./Layout.module.scss";
 import API from "../../api/index";
-import {validate}from "react-email-validator";
+import { validate } from "react-email-validator";
 const initialState = {
   email: " ",
   password: " ",
@@ -51,17 +51,17 @@ const LoginContainer = () => {
       setEmailError(true);
       return;
     } else {
-      if (validate(credentials.email)) {
-        setEmailError(false);
-        return;
-      }else{
+      if (!validate(credentials.email)) {
         setEmailError(true);
+        return;
+      } else {
+        setEmailError(false);
       }
     }
 
     if (
       credentials.password.includes(" ") ||
-      credentials.password.length === 0 
+      credentials.password.length === 0
     ) {
       console.log("you have to set password !");
       setPasswordError(true);
@@ -86,7 +86,7 @@ const LoginContainer = () => {
             setError({ bool: true, Message: err.response.data.Message });
           }
         } else {
-            setError({ bool: true, Message: "server not responding !" });
+          setError({ bool: true, Message: "server not responding !" });
         }
       });
   };
@@ -154,7 +154,9 @@ const LoginContainer = () => {
           buttonClass="login-button"
           onClick={handleSubmit}
         />
-        {error.bool ? <p style={{ color: "red", fontSize : "15px" }}> {error.Message} </p> : null}
+        {error.bool ? (
+          <p style={{ color: "red", fontSize: "15px" }}> {error.Message} </p>
+        ) : null}
       </div>
     </div>
   );
