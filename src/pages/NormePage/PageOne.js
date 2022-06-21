@@ -4,8 +4,9 @@ import Carousel from "react-bootstrap/Carousel";
 import photo from "../../assets/iso-9001.jpg";
 import SPhoto from "../../assets/consulting-jobs.png";
 import Tphoto from "../../assets/Consulting-Engagements.jpg";
-import { WhatIsNorme } from "../../constant/static";
+
 import "./style.css";
+import Travaux from "../../components/travaux/Travaux";
 const PageOne = () => {
   return (
     <>
@@ -18,7 +19,6 @@ const PageOne = () => {
               alt="First slide"
               height={500}
             />
-           
           </Carousel.Item>
           <Carousel.Item>
             <img
@@ -35,8 +35,6 @@ const PageOne = () => {
               alt="Third slide"
               height={500}
             />
-
-        
           </Carousel.Item>
         </Carousel>
       </Row>
@@ -55,134 +53,132 @@ const PageOne = () => {
             </div>
           </Col>
         </Row>
-      <Row>
-        <Col>
-          <Card
-            bg="Light"
-            key="Light"
-            text="Light"
-            style={{ width: "18rem" }}
-            className="mb-2"
-          >
-            <Card.Header>
-              <h4>ISO 9001</h4>
-            </Card.Header>
-            <Card.Body>
-              <Card.Text>
-                Cette norme constate l'aptitude d'une société ou d’un organisme
-                à répondre aux exigences du client en matière de qualité d'un
-                produit ou d'un service.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col>
-          <Card
-            bg="Light"
-            key="Light"
-            text="Light"
-            style={{ width: "18rem" }}
-            className="mb-2"
-          >
-            <Card.Header>
-              <h4>ISO 9001</h4>
-            </Card.Header>
-            <Card.Body>
-              <Card.Text>
-                Cette norme constate l'aptitude d'une société ou d’un organisme
-                à répondre aux exigences du client en matière de qualité d'un
-                produit ou d'un service.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col>
-          <Card
-            bg="Light"
-            key="Light"
-            text="Light"
-            style={{ width: "18rem" }}
-            className="mb-2"
-          >
-            <Card.Header>
-              <h4>ISO 9001</h4>
-            </Card.Header>
-            <Card.Body>
-              <Card.Text>
-                Cette norme constate l'aptitude d'une société ou d’un organisme
-                à répondre aux exigences du client en matière de qualité d'un
-                produit ou d'un service.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-
-        
-      </Row>
-      <Row>
-       <Col>
-          <Card
-            bg="Light"
-            key="Light"
-            text="Light"
-            style={{ width: "18rem" }}
-            className="mb-2"
-          >
-            <Card.Header>
-              <h4>ISO 9001</h4>
-            </Card.Header>
-            <Card.Body>
-              <Card.Text>
-                Cette norme constate l'aptitude d'une société ou d’un organisme
-                à répondre aux exigences du client en matière de qualité d'un
-                produit ou d'un service.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-       <Col>
-          <Card
-            bg="Light"
-            key="Light"
-            text="Light"
-            style={{ width: "18rem" }}
-            className="mb-2"
-          >
-            <Card.Header>
-              <h4>ISO 9001</h4>
-            </Card.Header>
-            <Card.Body>
-              <Card.Text>
-                Cette norme constate l'aptitude d'une société ou d’un organisme
-                à répondre aux exigences du client en matière de qualité d'un
-                produit ou d'un service.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-       <Col>
-          <Card
-            bg="Light"
-            key="Light"
-            text="Light"
-            style={{ width: "18rem" }}
-            className="mb-2"
-          >
-            <Card.Header>
-              <h4>ISO 9001</h4>
-            </Card.Header>
-            <Card.Body>
-              <Card.Text>
-                Cette norme constate l'aptitude d'une société ou d’un organisme
-                à répondre aux exigences du client en matière de qualité d'un
-                produit ou d'un service.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-
-      </Row>
-</Container>
+        <Row>
+          <Col>
+            <Card
+              bg="Light"
+              key="Light"
+              text="Light"
+              style={{ width: "18rem" }}
+              className="mb-2"
+            >
+              <Card.Header>
+                <h4>ISO 9001</h4>
+              </Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  Cette norme constate l'aptitude d'une société ou d’un
+                  organisme à répondre aux exigences du client en matière de
+                  qualité d'un produit ou d'un service.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card
+              bg="Light"
+              key="Light"
+              text="Light"
+              style={{ width: "18rem" }}
+              className="mb-2"
+            >
+              <Card.Header>
+                <h4>ISO 9001</h4>
+              </Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  Cette norme constate l'aptitude d'une société ou d’un
+                  organisme à répondre aux exigences du client en matière de
+                  qualité d'un produit ou d'un service.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card
+              bg="Light"
+              key="Light"
+              text="Light"
+              style={{ width: "18rem" }}
+              className="mb-2"
+            >
+              <Card.Header>
+                <h4>ISO 9001</h4>
+              </Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  Cette norme constate l'aptitude d'une société ou d’un
+                  organisme à répondre aux exigences du client en matière de
+                  qualité d'un produit ou d'un service.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Card
+              bg="Light"
+              key="Light"
+              text="Light"
+              style={{ width: "18rem" }}
+              className="mb-2"
+            >
+              <Card.Header>
+                <h4>ISO 9001</h4>
+              </Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  Cette norme constate l'aptitude d'une société ou d’un
+                  organisme à répondre aux exigences du client en matière de
+                  qualité d'un produit ou d'un service.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card
+              bg="Light"
+              key="Light"
+              text="Light"
+              style={{ width: "18rem" }}
+              className="mb-2"
+            >
+              <Card.Header>
+                <h4>ISO 9001</h4>
+              </Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  Cette norme constate l'aptitude d'une société ou d’un
+                  organisme à répondre aux exigences du client en matière de
+                  qualité d'un produit ou d'un service.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card
+              bg="Light"
+              key="Light"
+              text="Light"
+              style={{ width: "18rem" }}
+              className="mb-2"
+            >
+              <Card.Header>
+                <h4>ISO 9001</h4>
+              </Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  Cette norme constate l'aptitude d'une société ou d’un
+                  organisme à répondre aux exigences du client en matière de
+                  qualité d'un produit ou d'un service.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <Travaux />
+      </Container>
     </>
   );
 };

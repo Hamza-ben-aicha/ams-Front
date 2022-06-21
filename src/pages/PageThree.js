@@ -1,7 +1,8 @@
 import React from "react";
+import Travaux from "../components/travaux/Travaux";
 
 const PageThree = () => {
-    return <h1>actualités</h1>;
+    return <Travaux/>;
 };
 
 export default PageThree;

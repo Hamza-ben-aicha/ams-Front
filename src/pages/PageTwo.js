@@ -1,7 +1,8 @@
 import React from "react";
+import Travaux from "../components/travaux/Travaux";
 
 const PageTwo = () => {
-    return <h1>a propos de Africa mangement service</h1>;
+    return <Travaux/>;
 };
 
 export default PageTwo;

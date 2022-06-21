@@ -35,14 +35,17 @@ const Header = () => {
   };
   const params = useParams();
   const curentUser = JSON.parse(localStorage.getItem("curentUser"));
-
+console.log('====================================');
+console.log(curentUser);
+console.log('====================================');
   // console.log(params);
   return (
     <header className={classes.header}>
       <div className={classes.header__content}>
         <nav
-          className={`${classes.header__content__nav} ${menuOpen && size.width < 768 ? classes.isMenu : ""
-            }`}
+          className={`${classes.header__content__nav} ${
+            menuOpen && size.width < 768 ? classes.isMenu : ""
+          }`}
         >
           <ul>
             <li>
@@ -55,11 +58,22 @@ const Header = () => {
                 modifier votre profile
               </Link>
             </li>
-            <li>
-              <Link to="/profile/projets" onClick={menuToggleHandler}>
-                projets
-              </Link>
-            </li>
+            {curentUser?.user?.role === "admin" ? (
+              <li>
+                <a
+                  href="http://localhost:3001/"
+                  style={{ backgroundColor: "rgb(46, 184, 46)" }}
+                >
+                  Dashboard Admin
+                </a>
+              </li>
+            ) : (
+              <li>
+                <Link to="/profile/projets" onClick={menuToggleHandler}>
+                  projets
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
         <div className={classes.header__content__toggle}>
