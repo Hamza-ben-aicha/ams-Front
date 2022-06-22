@@ -23,8 +23,7 @@ const TabPrjC = () => {
     const handelClick = (id) => {
         let result = { id, evaluation, observation }
 
-        API.
-            patch('updateResult', result)
+        API.patch('updateResult', result)
             .then((res) => {
                 console.log(res);
             }).catch((err) => console.log(err));

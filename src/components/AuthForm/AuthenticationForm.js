@@ -15,7 +15,6 @@ const LoginContainer = () => {
   const navigate = useNavigate();
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
-    console.log(credentials);
   };
 
   const style = {
@@ -63,7 +62,6 @@ const LoginContainer = () => {
       credentials.password.includes(" ") ||
       credentials.password.length === 0
     ) {
-      console.log("you have to set password !");
       setPasswordError(true);
       return;
     } else {
@@ -112,7 +110,6 @@ const LoginContainer = () => {
               id="email"
               onFocus={focusField}
               onBlur={focusField}
-              autoComplete="off"
               onChange={handleChange}
               placeholder="Email"
             />
@@ -133,7 +130,6 @@ const LoginContainer = () => {
               id="password"
               onFocus={focusField}
               onBlur={focusField}
-              autoComplete="off"
               onChange={handleChange}
               placeholder="Password"
             />

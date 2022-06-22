@@ -24,38 +24,48 @@ const Modifierprofile = () => {
     confirmPassword: "",
     telephone: state?.telephone,
   });
-
-  // console.log("state ----- >", state.user);
-  // console.log(user.user);
   const handleChange = (e) => {
     setinitialState({ ...initialState, [e.target.name]: e.target.value });
     setError(false);
-    //console.log(initialState);
   };
   const [error, setError] = useState(false);
   const handleUpdate = () => {
-    
     if (!(initialState.confirmPassword === initialState.password)) {
       setError(true);
     } else {
       API.patch(`update_user/${state.id}`, initialState)
         .then((res) => {
-          API.post(`login`, {
+          API.post("login", {
             email: initialState.email,
             password: initialState.password,
-          })
-            .then((res) => {
-              console.log(res.data);
-              const user = res?.data?.token?.user;
-              const token = res?.data?.token?.token;
+          }).then((res) => {
+            if (res.status === 200) {
+              const user = res?.data?.result;
+              const token = res?.data?.token;
               localStorage.setItem(
                 "curentUser",
                 JSON.stringify({ user, token })
               );
               window.location.reload(false);
               navigate("/profile");
-            })
-            .catch((err) => console.log(err));
+            }
+          });
+          // API.post(`login`, {
+          //   email: initialState.email,
+          //   password: initialState.password,
+          // })
+          //   .then((res) => {
+          //     console.log(res);
+          //     const user = res?.data?.user;
+          //     const token = res?.data?.token;
+          //     localStorage.setItem(
+          //       "curentUser",
+          //       JSON.stringify({ user, token })
+          //     );
+          //     window.location.reload(false);
+          //     navigate("/profile");
+          //   })
+          //   .catch((err) => console.log(err));
         })
         .catch((err) => {
           console.log(err);
